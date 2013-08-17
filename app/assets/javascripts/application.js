@@ -13,7 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
+//= require underscore
+//= require backbone/backbone
+//= require backbone/backbone.babysitter
+//= require backbone/backbone.wreqr
+//= require backbone_rails_sync
+//= require backbone_datalink
+//= require backbone.marionette
+//= require backbone/skud
 //= require_tree .
 
 $(document).foundation();

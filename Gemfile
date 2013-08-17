@@ -27,7 +27,9 @@ gem 'jquery-rails'
 # Add Foundation Here
 gem 'compass-rails' # you need this or you get an err
 gem 'zurb-foundation', '~> 4.0.0'
-
+# Your other asset gems (sass-rails, coffee-rails, etc)
+gem 'rails-backbone'
+gem 'marionette-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
 
