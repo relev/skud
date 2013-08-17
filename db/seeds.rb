@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#
+
+DeviceType.create( name: 'person.mobile.iphone' )
+DeviceType.create( name: 'person.mobile.android' )
+DeviceType.create( name: 'person.card' )
+DeviceType.create( name: 'anonymous.alarmclock' )
+
