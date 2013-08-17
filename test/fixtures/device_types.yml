@@ -1,0 +1,18 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+iphone:
+  id: 10
+  name: 'person.mobile.iphone'
+
+android:
+  id: 20
+  name: 'person.mobile.android'
+
+card:
+  id: 30
+  name: 'person.card'
+
+alarmclock:
+  id: 100
+  name: 'anonymous.alarmclock'
+

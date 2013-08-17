@@ -11,13 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130817192705) do
+ActiveRecord::Schema.define(version: 20130817195013) do
+
+  create_table "device_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "devices", force: true do |t|
     t.integer  "device_type_id"
-    t.string   "name"
     t.integer  "user_id"
     t.integer  "session_key"
+    t.string   "name"
     t.string   "device_key"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -38,9 +44,9 @@ ActiveRecord::Schema.define(version: 20130817192705) do
   end
 
   create_table "visits", force: true do |t|
+    t.integer  "user_id"
     t.integer  "device_id"
     t.integer  "session_key"
-    t.integer  "user_id"
     t.datetime "closed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
