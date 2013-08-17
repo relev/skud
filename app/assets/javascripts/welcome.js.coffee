@@ -3,9 +3,16 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 app = new Skud.Applications.App()
 
+users = new Skud.Collections.UsersCollection();
+visits = new Skud.Collections.VisitsCollection();
+devices = new Skud.Collections.DevicesCollection();
+device_types = new Skud.Collections.DeviceTypesCollection();
+
 app.on('index', () ->
   console.log('index')
-  app.dashboard.show(new Skud.Views.VisitsView)
+  app.dashboard.show(new Skud.Views.VisitsView({
+    collection:visits
+  }))
   app.eventList.show(new Skud.Views.EventsView)
 )
 
