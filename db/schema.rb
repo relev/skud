@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130817190639) do
+ActiveRecord::Schema.define(version: 20130817192705) do
+
+  create_table "devices", force: true do |t|
+    t.integer  "device_type_id"
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "session_key"
+    t.string   "device_key"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "devices", ["device_type_id"], name: "index_devices_on_device_type_id"
+  add_index "devices", ["user_id"], name: "index_devices_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email"
@@ -23,5 +36,17 @@ ActiveRecord::Schema.define(version: 20130817190639) do
     t.datetime "updated_at"
     t.date     "birth_date"
   end
+
+  create_table "visits", force: true do |t|
+    t.integer  "device_id"
+    t.integer  "session_key"
+    t.integer  "user_id"
+    t.datetime "closed_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "visits", ["device_id"], name: "index_visits_on_device_id"
+  add_index "visits", ["user_id"], name: "index_visits_on_user_id"
 
 end

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  device_id: 
+  session_key: 1
+  user_id: 
+  closed_at: 2013-08-17 12:21:00
+
+two:
+  device_id: 
+  session_key: 1
+  user_id: 
+  closed_at: 2013-08-17 12:21:00
