@@ -4,10 +4,12 @@ class Skud.Routers.AppRouter extends Backbone.Marionette.AppRouter
 
   routes: {
     '':'index'
+    'tuktuk':'tuktuk'
   }
   index: () ->
     this.app.dashboard.show(new Skud.Views.VisitsView({
       collection: this.app.collections.visits
     }))
     this.app.eventList.show(new Skud.Views.EventsView)
-  
+  tuktuk: () ->
+    this.app.modal.show()
