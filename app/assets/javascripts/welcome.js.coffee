@@ -8,6 +8,9 @@ visits = new Skud.Collections.VisitsCollection();
 devices = new Skud.Collections.DevicesCollection();
 device_types = new Skud.Collections.DeviceTypesCollection();
 
+app.on('start', ()->
+  visits.fetch()
+)
 app.on('index', () ->
   console.log('index')
   app.dashboard.show(new Skud.Views.VisitsView({
