@@ -23,3 +23,6 @@ class Skud.Applications.App extends Backbone.Marionette.Application
 
   onStart: (options) ->
     _.each(this.collections, (item) -> item.fetch())
+    client.subscribe '/visit', (msg) =>
+      console.log msg
+      this.collections.visits.fetch()
