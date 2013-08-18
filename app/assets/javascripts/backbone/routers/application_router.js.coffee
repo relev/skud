@@ -5,5 +5,9 @@ class Skud.Routers.AppRouter extends Backbone.Marionette.AppRouter
   routes: {
     '':'index'
   }
-  index: () -> this.app.trigger('index')
+  index: () ->
+    this.app.dashboard.show(new Skud.Views.VisitsView({
+      collection: this.app.collections.visits
+    }))
+    this.app.eventList.show(new Skud.Views.EventsView)
   
