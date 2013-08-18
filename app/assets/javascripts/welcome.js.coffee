@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
-  window.client = new Faye.Client('http://localhost:9292/faye');
+  window.client = new Faye.Client('http://clockface.headmade.pro:9292/faye');
   app = new Skud.Applications.App()
   app.start()
 
