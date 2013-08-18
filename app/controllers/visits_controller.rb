@@ -4,7 +4,8 @@ class VisitsController < ApplicationController
   # GET /visits
   # GET /visits.json
   def index
-    @visits = Visit.all
+    #@visits = Visit.all
+    @visits = Visit.where('closed_at >0')
   end
 
   # GET /visits/1
