@@ -1,7 +1,7 @@
 class Skud.Views.VisitView extends Backbone.Marionette.ItemView
   tagName:'li'
   className:'visit'
-  template: _.template('<%=user.first_name%>')
+  template: _.template('<%=user%>')
   onRender: () ->
     this.delegateEvents({
       'click':'click'
