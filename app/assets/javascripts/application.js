@@ -12,15 +12,52 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
 //= require underscore
-//= require backbone/backbone
-//= require backbone/backbone.babysitter
-//= require backbone/backbone.wreqr
-//= require backbone_rails_sync
-//= require backbone_datalink
+//= require backbone/lib/backbone
+//= require backbone/lib/backbone.wreqr
+//= require backbone/lib/backbone.babysitter
 //= require backbone.marionette
+// require backbone_rails_sync
+// require backbone_datalink
 //= require backbone/skud
-//= require_tree .
+//= require foundation
+//= require hamlcoffee
+//= require backbone/lib/rivets
 
 $(document).foundation();
+
+rivets.configure({
+    adapter: {
+        subscribe: function(obj, keypath, callback) {
+            obj.on("change:" + keypath, callback)
+        },
+        unsubscribe: function(obj, keypath, callback) {
+            obj.off("change:" + keypath, callback)
+        },
+        read: function(obj, keypath) {
+            return obj.get(keypath)
+        },
+        publish: function(obj, keypath, value) {
+            obj.set(keypath, value)
+        }
+    }
+});
+rivets.formatters.intBool = {
+    read: function(value) {
+        if(value == 1) {
+            return true
+        }
+        else if(value == 0) {
+            return false
+        }
+    },
+    publish: function(value) {
+        if(value){
+            return 1
+        }
+        else {
+            return 0
+        }
+    }
+};
+

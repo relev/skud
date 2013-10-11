@@ -1,0 +1,10 @@
+%h1 Users
+
+%table{width: '100%'}
+  %thead
+    %th Name
+    %th
+    %th
+  %tbody
+
+%a{:href=>'#user/create',:class=>'button medium round success',:id=>'new'} New

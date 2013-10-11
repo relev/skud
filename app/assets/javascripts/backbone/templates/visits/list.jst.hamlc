@@ -1,0 +1,8 @@
+%h1 Visits
+
+%table{width: '100%'}
+  %thead
+    %th Name
+    %th
+    %th
+  %tbody

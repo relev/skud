@@ -1,4 +1,4 @@
-class Skud.Models.Devices extends Backbone.Model
+class Skud.Models.Device extends Backbone.Model
   urlRoot: '/devices'
 
   defaults:

@@ -1,0 +1,14 @@
+%h3 Create User
+
+%div.row
+  %div.large-4.columns
+    %lable Name
+    %input{autofocus:'autofocus', id:'userName',type:'text', 'data-value'=> 'model.name'}
+
+
+%div.row
+  %div.large-4.large-offset-1.columns
+    %a{class:'button medium round success', id:'ok'} Ok
+  %div.large-4.large-offset-2.columns
+    %a{class:'button medium round alert', id:'delete'} Delete
+%a{id:'close',class:'close-reveal-modal'} &#215;

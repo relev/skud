@@ -19,11 +19,13 @@
 
   = stylesheet_link_tag "application"
   = javascript_include_tag "vendor/custom.modernizr"
-  = javascript_include_tag "http://clockface.headmade.pro:9292/faye/client.js"
+  = javascript_include_tag "/faye/client"
   = csrf_meta_tag
 
 %body
 
   = yield
+  :javascript
+      window.faye_server = "#{root_url}faye"
 
   = javascript_include_tag "application"

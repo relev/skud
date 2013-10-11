@@ -1,4 +1,4 @@
-class Skud.Models.Visits extends Backbone.Model
+class Skud.Models.Visit extends Backbone.Model
   urlRoot: '/visits'
 
   defaults:
@@ -8,5 +8,5 @@ class Skud.Models.Visits extends Backbone.Model
     closed_at: null
 
 class Skud.Collections.VisitsCollection extends Backbone.Collection
-  model: Skud.Models.Visits
+  model: Skud.Models.Visit
   url: '/visits'

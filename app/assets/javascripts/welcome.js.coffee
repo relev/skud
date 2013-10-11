@@ -2,8 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
-  window.client = new Faye.Client('http://clockface.headmade.pro:9292/faye');
-  app = new Skud.Applications.App()
+  window.app = new Skud.Applications.ClockFaceApp()
   app.start()
 
 

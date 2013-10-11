@@ -1,28 +1,26 @@
-class Skud.Applications.App extends Backbone.Marionette.Application
-  regions: {
-    dashboard: '#dashboard',
-    eventList: '#event_list'
-  }
+class Skud.Applications.ClockFaceApp extends Backbone.Marionette.Application
 
   onInitializeBefore: (options) ->
-    this.collections = {
-      users: new Skud.Collections.UsersCollection(),
-      visits: new Skud.Collections.VisitsCollection(),
-      devices: new Skud.Collections.DevicesCollection()
-    }
-
-    this.addRegions({
-      dashboard: '#dashboard',
-      eventList: '#event_list'
-    })
-    this.router = new Skud.Routers.AppRouter({app:this})
+    @addRegions
+      'dashboard':'#dashboard'
+      'event_list':'#eventList'
+      'modal':'#modal'
 
   onInitializeAfter: (options) ->
+    @visits = new Skud.Collections.VisitsCollection
+    @visits.fetch()
+
+    @appRouter = new Skud.Routers.AppRouter
+
+    @client = new Faye.Client window.faye_server
+
+    @client.subscribe 'visit_new', (user_id) =>
+      if !user_id
+        user = @users.get user_id
+      visit = new Skud.Models.Visit()
+
     if Backbone.history
       Backbone.history.start()
 
   onStart: (options) ->
-    _.each(this.collections, (item) -> item.fetch())
-    client.subscribe '/visit', (msg) =>
-      console.log msg
-      this.collections.visits.fetch()
+    console.log 'ClockFaceApp start!'

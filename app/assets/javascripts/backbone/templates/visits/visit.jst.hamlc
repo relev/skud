@@ -1,0 +1,10 @@
+%td= @name
+- if @status == 0
+  %td
+    %a{href:'#user/#{@id}/edit',class:'button small success', id:'edit'}Edit
+  %td
+    %a{class:'button small alert',id:'delete'}Delete
+- else
+  %td
+    %a{class:'button small', id:'lock'}lock
+  %td

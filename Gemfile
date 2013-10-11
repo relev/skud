@@ -4,15 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 gem 'rails-observers'
 
-gem 'faye'
-gem 'thin'
-
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-
-#haml
-gem 'haml'
-gem 'haml-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -29,12 +22,6 @@ gem 'therubyracer', platforms: :ruby
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-# Add Foundation Here
-gem 'compass-rails' # you need this or you get an err
-gem 'zurb-foundation', '~> 4.0.0'
-# Your other asset gems (sass-rails, coffee-rails, etc)
-gem 'rails-backbone'
-gem 'marionette-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
@@ -50,10 +37,26 @@ end
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
-gem 'unicorn'
+#gem 'unicorn'
 
 # Use Capistrano for deployment
-gem 'capistrano', group: :development
+#gem 'capistrano', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+#haml
+gem 'haml'
+gem 'haml-rails'
+gem 'haml_coffee_assets'
+gem 'execjs'
+# Add Foundation Here
+gem 'compass-rails' # you need this or you get an err
+gem 'zurb-foundation', '~> 4.0.0'
+# Your other asset gems (sass-rails, coffee-rails, etc)
+gem 'rails-backbone'
+gem 'marionette-rails'
+
+gem 'faye'
+gem 'puma'
+
