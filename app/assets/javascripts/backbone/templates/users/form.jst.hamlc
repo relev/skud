@@ -3,7 +3,7 @@
 %div.row
   %div.large-4.columns
     %lable Name
-    %input{autofocus:'autofocus', id:'userName',type:'text', 'data-value'=> 'model.name'}
+    %input{autofocus:'autofocus', id:'userName',type:'text', 'data-value'=> 'model.first_name'}
 
 
 %div.row

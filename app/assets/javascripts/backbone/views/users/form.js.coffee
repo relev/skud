@@ -7,8 +7,12 @@ class Skud.Views.Users.FormUser extends Skud.Views.FormView
     'click #delete':'delete'
     'click #close':'closeForm'
 
+  onShow: ->
+    rivets.bind(@$el,{model:@model})
+    @lock('/user_change')
+
   closeForm: ->
-    @unlock()
+    @unlock('/user_change')
     @back()
 
   delete: ->

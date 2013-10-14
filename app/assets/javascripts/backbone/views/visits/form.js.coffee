@@ -9,8 +9,12 @@ class Skud.Views.Visits.FormVisit extends Skud.Views.FormView
     'click #start':'start'
     'click #complite':'complite'
 
+  onShow: ->
+    rivets.bind(@$el,{model:@model})
+    @lock('visit_change')
+
   closeForm: ->
-    @unlock()
+    @unlock('visit_change')
     @back()
 
   delete: ->

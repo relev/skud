@@ -1,5 +1,5 @@
-%td= @name
-- if @status == 0
+%td= @first_name
+- if @lock == 0
   %td
     %a{href:'#user/#{@id}/edit',class:'button small success', id:'edit'}Edit
   %td

@@ -6,12 +6,14 @@ class Skud.Views.FormView extends Backbone.Marionette.ItemView
     if !@model.isNew()
       @model.save({lock: 1}, {
         success: (model) ->
+          console.log model.toJSON()
           app.client.publish(faye_channel, model.id)
       })
 
   unlock: (faye_channel) ->
     @model.save({lock: 0}, {
       success: (model) ->
+        console.log model.toJSON()
         app.client.publish(faye_channel, model.id)
     })
 

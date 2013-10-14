@@ -1,8 +1,9 @@
 Skud.Views.Users ||= {}
 
-class Skud.Views.Users.ListView extends Skud.Views.CompositeView
+class Skud.Views.Users.ListView extends Backbone.Marionette.CompositeView
   template: JST["backbone/templates/users/list"]
   itemViewContainer: 'tbody'
-  itemView: Skud.Views.Users.User
+  initialize: () ->
+    @itemView = Skud.Views.Users.UserView
 
 

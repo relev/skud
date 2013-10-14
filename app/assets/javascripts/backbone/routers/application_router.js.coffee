@@ -1,6 +1,4 @@
 class Skud.Routers.AppRouter extends Backbone.Marionette.AppRouter
-  initialize: (options) ->
-    this.app = options.app
 
   routes: {
     'visit':'visitList'
@@ -8,6 +6,7 @@ class Skud.Routers.AppRouter extends Backbone.Marionette.AppRouter
     'visit/create':'createVisit'
     'user/:id/visit/create':'createUserVisit'
     'user/create':'createUser'
+    'user/:id/edit':'editUser'
   }
 
 # list routes
@@ -39,7 +38,16 @@ class Skud.Routers.AppRouter extends Backbone.Marionette.AppRouter
     @userList()
     model = new Skud.Models.User()
     app.users.add model
-    app.modal.show new Skud.Views.Users.FormUser model:model
+    app.modal.show new Skud.Views.Users.FormUser model:model, backUrl:'#user'
     $('#modal').foundation('reveal', 'open')
+
+# edit routes
+  editUser: (id) ->
+    @userList()
+    console.log app
+    model = app.users.get id
+    app.modal.show new Skud.Views.Users.FormUser model:model, backUrl:'#user'
+    $('#modal').foundation('reveal', 'open')
+
 
 

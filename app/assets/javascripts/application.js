@@ -20,6 +20,7 @@
 // require backbone_rails_sync
 // require backbone_datalink
 //= require backbone/skud
+//= require welcome
 //= require foundation
 //= require hamlcoffee
 //= require backbone/lib/rivets

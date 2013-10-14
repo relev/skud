@@ -1,8 +1,9 @@
 Skud.Views.Visits ||= {}
 
-class Skud.Views.Visits.ListView extends Skud.Views.CompositeView
+class Skud.Views.Visits.ListView extends Backbone.Marionette.CompositeView
   template: JST["backbone/templates/visits/list"]
   itemViewContainer: 'tbody'
-  itemView: Skud.Views.Visits.Visit
+  initialize: () ->
+    @itemView = Skud.Views.Visits.VisitView
 
 
