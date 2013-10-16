@@ -3,24 +3,23 @@ Skud.Views.Visits ||= {}
 class Skud.Views.Visits.FormVisit extends Skud.Views.FormView
   template: JST["backbone/templates/visits/form"]
   events:
-    'click #ok':'closeForm'
-    'click #delete':'delete'
-    'click #close':'closeForm'
-    'click #start':'start'
-    'click #complite':'complite'
+    'click #delete': 'delete'
+    'click #close': 'closeForm'
+    'click #start': 'start'
+    'click #complete': 'complete'
 
   onShow: ->
-    rivets.bind(@$el,{model:@model})
-    @lock('visit_change')
+    @lock('/visit_change')
 
   closeForm: ->
-    @unlock('visit_change')
+    @unlock('/visit_change')
     @back()
 
   delete: ->
     @model.destroy(
       success: (model, response) =>
-        app.client.publish('/visit_delete', model.id)
+        console.log 'deleted:'
+        console.log model.toJSON()
         @back()
       error: (model, response) ->
         console.log response
@@ -33,4 +32,9 @@ class Skud.Views.Visits.FormVisit extends Skud.Views.FormView
   complite: ->
     console.log('visit:complite')
     @closeForm()
+
+  templateHelpers:
+    user: () ->
+      return app.users.get @user_id
+
 

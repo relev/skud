@@ -60,3 +60,6 @@ gem 'marionette-rails'
 gem 'faye'
 gem 'puma'
 
+gem 'rails-observers'
+
+#gem 'ruby-debug-ide', group: :development

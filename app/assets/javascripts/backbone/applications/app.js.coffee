@@ -2,9 +2,9 @@ class Skud.Applications.ClockFaceApp extends Backbone.Marionette.Application
 
   onInitializeBefore: (options) ->
     @addRegions
-      'dashboard':'#dashboard'
-      'event_list':'#eventList'
-      'modal':'#modal'
+      'dashboard': '#dashboard'
+      'event_list': '#eventList'
+      'modal': '#modal'
 
   onInitializeAfter: (options) ->
     @visits = new Skud.Collections.VisitsCollection
@@ -17,16 +17,12 @@ class Skud.Applications.ClockFaceApp extends Backbone.Marionette.Application
 
     @client = new Faye.Client window.faye_server
 
-    @client.subscribe '/user_change', (id) =>
-      model = @users.get id
-      if !model
-        @users.add new Skud.Models.User id:id
-        model = @users.get(id)
-      model.fetch()
-    @client.subscribe '/user_delete', (id) =>
-      model = @users.get(id)
-      if !!model
-        model.destroy()
+    Backbone.Faye.bind @client, '/user', @users
+
+    @client.subscribe '/visit_start', (massege) ->
+      console.log massege
+    @client.subscribe '/visit_close', (massege) ->
+      console.log massege
 
     if Backbone.history
       Backbone.history.start()

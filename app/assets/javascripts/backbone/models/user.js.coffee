@@ -1,5 +1,5 @@
 class Skud.Models.User extends Backbone.Model
-#  urlRoot: '/users'
+  #  urlRoot: '/users'
 
   defaults:
     first_name: ""

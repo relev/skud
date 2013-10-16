@@ -28,37 +28,71 @@
 $(document).foundation();
 
 rivets.configure({
-    adapter: {
-        subscribe: function(obj, keypath, callback) {
-            obj.on("change:" + keypath, callback)
-        },
-        unsubscribe: function(obj, keypath, callback) {
-            obj.off("change:" + keypath, callback)
-        },
-        read: function(obj, keypath) {
-            return obj.get(keypath)
-        },
-        publish: function(obj, keypath, value) {
-            obj.set(keypath, value)
-        }
-    }
+	adapter: {
+		subscribe: function (obj, keypath, callback) {
+			obj.on("change:" + keypath, callback)
+		},
+		unsubscribe: function (obj, keypath, callback) {
+			obj.off("change:" + keypath, callback)
+		},
+		read: function (obj, keypath) {
+			return obj.get(keypath)
+		},
+		publish: function (obj, keypath, value) {
+			obj.set(keypath, value)
+		}
+	}
 });
 rivets.formatters.intBool = {
-    read: function(value) {
-        if(value == 1) {
-            return true
-        }
-        else if(value == 0) {
-            return false
-        }
-    },
-    publish: function(value) {
-        if(value){
-            return 1
-        }
-        else {
-            return 0
-        }
-    }
+	read: function (value) {
+		if (value == 1) {
+			return true
+		}
+		else if (value == 0) {
+			return false
+		}
+	},
+	publish: function (value) {
+		if (value) {
+			return 1
+		}
+		else {
+			return 0
+		}
+	}
+};
+
+Backbone.Faye = {
+	bind: function (client, channel, collection) {
+		if (client) {
+			client.subscribe(channel, $.proxy(function (message) {
+				if (message['action'] && message['model']) {
+					var model = message.model;
+					switch (message.action) {
+						case 'create':
+							if(!collection.get(model.id)) {
+								collection.add(model);
+							}
+							break;
+						case 'update':
+							if(collection.get(model.id)) {
+								var model = collection.get(model.id).set(model)
+								model.trigger('sync')
+							}
+							else {
+								collection.add(model);
+							}
+							break;
+						case 'destroy':
+							if(collection.get(model.id)) {
+								collection.remove(collection.get(model.id))
+							}
+							break;
+					}
+				}
+			}, this));
+		}
+	}
+
 };
 

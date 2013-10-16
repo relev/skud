@@ -4,8 +4,8 @@ class VisitsController < ApplicationController
   # GET /visits
   # GET /visits.json
   def index
-    #@visits = Visit.all
-    @visits = Visit.where('closed_at >0')
+    @visits = Visit.all
+    #@visits = Visit.where('closed_at ==0')
   end
 
   # GET /visits/1
@@ -44,7 +44,7 @@ class VisitsController < ApplicationController
     respond_to do |format|
       if @visit.update(visit_params)
         format.html { redirect_to @visit, notice: 'Visit was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render action: 'update', status: :ok, location: @visit }
       else
         format.html { render action: 'edit' }
         format.json { render json: @visit.errors, status: :unprocessable_entity }
@@ -70,6 +70,6 @@ class VisitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def visit_params
-      params.require(:visit).permit(:device_id, :session_key, :user_id, :closed_at)
+      params.require(:visit).permit(:lock, :device_id, :session_key, :user_id, :closed_at)
     end
 end

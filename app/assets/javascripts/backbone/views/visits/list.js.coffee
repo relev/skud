@@ -7,3 +7,6 @@ class Skud.Views.Visits.ListView extends Backbone.Marionette.CompositeView
     @itemView = Skud.Views.Visits.VisitView
 
 
+
+
+

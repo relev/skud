@@ -1,7 +1,7 @@
 %td= @name
 - if @lock == 0
   %td
-    %a{href:'#user/#{@id}/edit',class:'button small success', id:'edit'}Edit
+    %a{href:'#visit/#{@id}/edit',class:'button small success', id:'edit'}Edit
   %td
     %a{class:'button small alert',id:'delete'}Delete
 - else

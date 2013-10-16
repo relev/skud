@@ -4,6 +4,8 @@
     %a{href:'#user/#{@id}/edit',class:'button small success', id:'edit'}Edit
   %td
     %a{class:'button small alert',id:'delete'}Delete
+  %td
+    %a{class:'button small success',id:'createVisit'}Create visit
 - else
   %td
     %a{class:'button small', id:'lock'}lock

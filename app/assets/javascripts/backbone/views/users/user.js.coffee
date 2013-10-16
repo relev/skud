@@ -1,17 +1,20 @@
 Skud.Views.Users ||= {}
 
 class Skud.Views.Users.UserView extends Skud.Views.ItemView
-  tagName:'tr'
+  tagName: 'tr'
   template: JST["backbone/templates/users/user"]
   events:
-    'click #delete':'delete'
+    'click #delete': 'delete'
+    'click #createVisit': 'createUserVisit'
 
   delete: ->
     @model.destroy(
       success: (model) ->
-        app.client.publish('/user_delete', model.id)
         console.log 'deleted:'
         console.log model.toJSON()
+#        app.client.publish '/user', {model:model, action:'destroy'}
       error: (model, response) ->
         console.log response
     )
+  createUserVisit: ->
+#    app.client.publish '/visit', {user_id:@model.id, action:'create_with_user'}
