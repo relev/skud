@@ -67,7 +67,7 @@ Backbone.Faye = {
 		if (client) {
 			client.subscribe(channel, $.proxy(function (message) {
 				if (message['action'] && message['model']) {
-					var model = message.model;
+					var model = JSON.parse(message.model);
 					switch (message.action) {
 						case 'create':
 							if(!collection.get(model.id)) {
@@ -75,13 +75,8 @@ Backbone.Faye = {
 							}
 							break;
 						case 'update':
-							if(collection.get(model.id)) {
-								var model = collection.get(model.id).set(model)
-								model.trigger('sync')
-							}
-							else {
-								collection.add(model);
-							}
+							var model = collection.get(model.id).set(model);
+							model.trigger('sync');
 							break;
 						case 'destroy':
 							if(collection.get(model.id)) {

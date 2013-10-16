@@ -9,10 +9,10 @@ class Skud.Views.Visits.FormVisit extends Skud.Views.FormView
     'click #complete': 'complete'
 
   onShow: ->
-    @lock('/visit_change')
+    @lock()
 
   closeForm: ->
-    @unlock('/visit_change')
+    @unlock()
     @back()
 
   delete: ->

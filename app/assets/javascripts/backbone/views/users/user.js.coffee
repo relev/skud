@@ -12,7 +12,6 @@ class Skud.Views.Users.UserView extends Skud.Views.ItemView
       success: (model) ->
         console.log 'deleted:'
         console.log model.toJSON()
-#        app.client.publish '/user', {model:model, action:'destroy'}
       error: (model, response) ->
         console.log response
     )
