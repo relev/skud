@@ -1,0 +1,12 @@
+%h1 Devices
+
+%table{width: '100%'}
+  %thead
+    %th Name
+    %th
+    %th
+    %th User
+    %th
+  %tbody
+
+%a{:href=>'#devices/create',:class=>'button medium round success'} New

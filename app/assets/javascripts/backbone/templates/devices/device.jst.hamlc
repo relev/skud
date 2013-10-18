@@ -1,0 +1,14 @@
+%td= @name
+%td
+  %a{href:'#devices/#{@id}/edit',class:'button small success'}Edit
+%td
+  %a{class:'button small alert',id:'delete'}Delete
+%td
+  -if @user_id
+    -name = @getUserName()
+    -console.log name
+    = name
+  -else
+    = '-'
+%td
+  %a{class:'button small success', id:'create_visit'}Create Visit

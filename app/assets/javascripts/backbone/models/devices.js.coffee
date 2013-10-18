@@ -3,11 +3,11 @@ class Skud.Models.Device extends Backbone.Model
 
   defaults:
     device_type: null
-    user: null
+    user_id: null
     session_key: null
     name: null
     device_key: null
 
 class Skud.Collections.DevicesCollection extends Backbone.Collection
-  model: Skud.Models.Devices
+  model: Skud.Models.Device
   url: '/devices'

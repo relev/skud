@@ -2,7 +2,6 @@
 
 %table{width: '100%'}
   %thead
-    %th Name
-    %th
-    %th
+    %th User
+    %th Device
   %tbody

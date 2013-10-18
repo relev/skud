@@ -5,8 +5,6 @@
     %th Name
     %th
     %th
-    %th
   %tbody
 
-%a{:href=>'#user/create',:class=>'button medium round success',:id=>'new'} New
-%a{:class=>'button medium round success',:id=>'newVisit'} New Visit
+%a{:href=>'#users/create',:class=>'button medium round success',:id=>'new'} New

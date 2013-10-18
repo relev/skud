@@ -1,14 +1,39 @@
 %h3 Create User
 
-%div.row
-  %div.large-4.columns
-    %lable Name
-    %input{autofocus:'autofocus', id:'userName',type:'text', 'data-value'=> 'model.first_name'}
+.row
+  .large-4.columns
+    %lable First name
+    %input{autofocus:'autofocus', id:'first_name',type:'text', 'data-value'=> 'model.first_name'}
+  .large-4.columns
+    %lable Last name
+    %input{id:'last_name',type:'text', 'data-value'=> 'model.last_name'}
+  .large-4.columns
 
+.row
+  .large-12.columns
+    %lable Email
+    %input{id:'email',type:'text', 'data-value'=> 'model.email'}
+.row
+  .large-12.columns
+    %lable Gender
+    .large-4.switch.round
+      %input{id:'m',name:'man',type:'radio',value:1, 'data-checked'=>'model.gender'}
+      %label{for:'m', 'onclick'} Man
+      %input{id:'w',name:'woman',type:'radio',value:0, 'data-checked'=>'model.gender'}
+      %label{for:'w', 'onclick'}Woman
+.row
+  .large-4.columns
+    %lable Birth date
+    %input{id:'userName',type:'text', 'data-value'=> 'model.birth_date'}
+- if @device_id?
+  .row
+    .large-4.columns Device
+    .large-4.columns= @device_name()
+    .large-4.columns
 
-%div.row
-  %div.large-4.large-offset-1.columns
+.row
+  .large-4.large-offset-1.columns
     %a{class:'button medium round success', id:'ok'} Ok
-  %div.large-4.large-offset-2.columns
+  .large-4.large-offset-2.columns
     %a{class:'button medium round alert', id:'delete'} Delete
 %a{id:'close',class:'close-reveal-modal'} &#215;

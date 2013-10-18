@@ -1,0 +1,23 @@
+%h3 Device
+
+.row
+  .large-4.columns
+    %lable name
+    %input{autofocus:'autofocus', id:'name',type:'text', 'data-value'=> 'model.name'}
+
+.row
+  .large-12.columns
+    %lable User
+    %select.medium{'data-value'=>'model.user_id'}
+      -users = @getUsers()
+      -console.log users
+      -for item in users
+        %option{value:'#{item.id}'}=item.first_name
+
+.row
+  .large-4.large-offset-1.columns
+    %a{class:'button medium round success', id:'ok'} Ok
+  .large-4.large-offset-2.columns
+    %a{class:'button medium round alert', id:'delete'} Delete
+
+%a{id:'close',class:'close-reveal-modal'} &#215;

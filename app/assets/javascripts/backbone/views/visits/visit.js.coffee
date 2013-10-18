@@ -1,17 +1,20 @@
 Skud.Views.Visits ||= {}
 
-class Skud.Views.Visits.VisitView extends Skud.Views.ItemView
+class Skud.Views.Visits.VisitView extends Backbone.Marionette.ItemView
   tagName: 'tr'
   template: JST["backbone/templates/visits/visit"]
-  events:
-    'click #delete': 'delete'
-
-  delete: ->
-    @model.destroy(
-      success: (model) ->
-        console.log 'deleted:'
-        console.log model.toJSON()
-      error: (model, response) ->
-        console.log response
+  initialize: ->
+    @model.on('sync', () =>
+      @render()
     )
+  templateHelpers:
+    userName: () ->
+      user = app.users.get @user_id
+      name = user.get 'first_name'
+      name
+    deviceName: () ->
+      device = app.devices.get @device_id
+      name = device.get 'name'
+      name
+
 

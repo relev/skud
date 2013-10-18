@@ -7,6 +7,7 @@ class Skud.Models.Visit extends Backbone.Model
     session_key: null
     closed_at: null
     created_at: null
+    price: null
     lock: 0
 
 class Skud.Collections.VisitsCollection extends Backbone.Collection
