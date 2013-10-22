@@ -1,13 +1,16 @@
 Skud::Application.routes.draw do
-  root 'welcome#index'
-
-  get "api/signal"
 
   resources :devices
 
   resources :visits
 
   resources :users
+
+  root 'welcome#index'
+  get "api/signal"
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

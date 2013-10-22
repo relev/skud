@@ -62,4 +62,8 @@ gem 'puma'
 
 gem 'rails-observers'
 
-#gem 'ruby-debug-ide', group: :development
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
+gem 'configus', :git => 'git://github.com/relev/configus.git'

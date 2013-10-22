@@ -41,10 +41,11 @@ class VisitsController < ApplicationController
   # PATCH/PUT /visits/1
   # PATCH/PUT /visits/1.json
   def update
+    @visit
     respond_to do |format|
       if @visit.update(visit_params)
-        format.html { redirect_to @visit.to_state(), notice: 'Visit was successfully updated.' }
-        format.json { render action: 'update', status: :ok, location: @visit.to_state() }
+        format.html { redirect_to @visit, notice: 'Visit was successfully updated.' }
+        format.json { render action: 'update', status: :ok, location: @visit }
       else
         format.html { render action: 'edit' }
         format.json { render json: @visit.errors, status: :unprocessable_entity }

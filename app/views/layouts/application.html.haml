@@ -27,5 +27,8 @@
   = yield
   :javascript
       window.faye_server = "#{root_url}faye"
+  %ul
+    %li= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
+    %li= link_to "Sign in with Vkontakte", user_omniauth_authorize_path(:vkontakte)
 
   = javascript_include_tag "application"

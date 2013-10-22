@@ -7,14 +7,6 @@ class Skud.Applications.ClockFaceApp extends Backbone.Marionette.Application
       'modal': '#modal'
 
   onInitializeAfter: (options) ->
-    @visits = new Skud.Collections.VisitsCollection
-    @visits.fetch()
-
-    @users = new Skud.Collections.UsersCollection
-    @users.fetch()
-
-    @devices = new Skud.Collections.DevicesCollection
-    @devices.fetch()
 
     @appRouter = new Skud.Routers.AppRouter
 

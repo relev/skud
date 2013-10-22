@@ -3,6 +3,18 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
   window.app = new Skud.Applications.ClockFaceApp()
-  app.start()
+  app.visits = new Skud.Collections.VisitsCollection
+  app.visits.fetch {
+    success: () ->
+      app.devices = new Skud.Collections.DevicesCollection
+      app.devices.fetch {
+        success: () ->
+          app.users = new Skud.Collections.UsersCollection
+          app.users.fetch {
+            success: () ->
+              app.start()
+          }
+      }
+  }
 
 
