@@ -13,7 +13,11 @@ class ApiController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_visit
-      @visit = Visit.find_by(device_id: params[:device_id])
+      if params[:device_id]
+        @visit = Visit.find_by(device_id: params[:device_id])
+      elsif params[:id]
+        @visit = Visit.find_by(id: params[:id])
+      end
     end
     def set_client
       @client = Faye::Client.new 'http://localhost:9292/faye'

@@ -30,11 +30,17 @@ class Skud.Views.Visits.OpenVisit extends Backbone.Marionette.ItemView
   templateHelpers:
     userName: () ->
       user = app.users.get @user_id
-      name = user.get 'first_name'
+      if !!user
+        name = user.get 'first_name'
+      else
+        name = 'unknown user'
       name
     deviceName: () ->
       device = app.devices.get @device_id
-      name = device.get 'name'
+      if !!device
+        name = device.get 'name'
+      else
+        name = 'unknown device'
       name
 
 

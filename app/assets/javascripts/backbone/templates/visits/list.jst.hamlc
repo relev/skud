@@ -5,3 +5,5 @@
     %th User
     %th Device
   %tbody
+
+%a{:class=>'button medium round success', id:'new_visit'} New
